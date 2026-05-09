@@ -69,7 +69,8 @@ export default class WeatherWidget extends UIComponent {
         if (this.isLoading) return;
         
         this.isLoading = true;
-        this.weatherInfo.innerHTML = '<div class="widget__loading"><i> class="fas fa-spinner fa-pulse"></i><br>Загрузка погоды...</div>';
+        // ИСПРАВЛЕНО: добавлена кавычка перед class=
+        this.weatherInfo.innerHTML = '<div class="widget__loading"><i class="fas fa-spinner fa-pulse"></i><br>Загрузка погоды...</div>';
         
         try {
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(this.city)}&appid=${this.apiKey}&units=metric&lang=ru`;

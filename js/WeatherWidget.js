@@ -2,7 +2,7 @@ import UIComponent from './UIComponent.js';
 
 /**
  * Виджет "Погода"
- * Получает данные с внешнего API (OpenWeatherMap)
+ * Получает данные с OpenWeatherMap API
  */
 export default class WeatherWidget extends UIComponent {
     constructor(config = {}) {
@@ -11,8 +11,9 @@ export default class WeatherWidget extends UIComponent {
         this.weatherData = null;
         this.isLoading = false;
         
-        // API ключ (для тестирования используем публичный, лучше зарегистрировать свой)
-        this.apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // OpenWeatherMap demo key
+        // Бесплатный API ключ OpenWeatherMap
+        // Зарегистрируйте свой на https://home.openweathermap.org/users/sign_up
+        this.apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // Демо-ключ
     }
 
     getTitleIcon() {
@@ -40,7 +41,6 @@ export default class WeatherWidget extends UIComponent {
         cityInputGroup.appendChild(this.cityInput);
         cityInputGroup.appendChild(setCityBtn);
         
-        // Контейнер для информации о погоде
         this.weatherInfo = document.createElement('div');
         this.weatherInfo.className = 'weather__info';
         
@@ -59,7 +59,6 @@ export default class WeatherWidget extends UIComponent {
             }
         });
         
-        // Загружаем погоду для города по умолчанию
         this.fetchWeather();
         
         return this.createWidgetWrapper(container);
@@ -69,7 +68,6 @@ export default class WeatherWidget extends UIComponent {
         if (this.isLoading) return;
         
         this.isLoading = true;
-        // ИСПРАВЛЕНО: добавлена кавычка перед class=
         this.weatherInfo.innerHTML = '<div class="widget__loading"><i class="fas fa-spinner fa-pulse"></i><br>Загрузка погоды...</div>';
         
         try {
@@ -100,17 +98,18 @@ export default class WeatherWidget extends UIComponent {
         const description = this.weatherData.weather[0].description;
         const humidity = this.weatherData.main.humidity;
         const windSpeed = Math.round(this.weatherData.wind.speed);
-        
         const weatherIcon = this.getWeatherIcon(this.weatherData.weather[0].icon);
         
         this.weatherInfo.innerHTML = `
-            <div class="weather__city-name"><i class="fas fa-location-dot"></i> ${this.weatherData.name}</div>
-            <div class="weather__temp">${temp}°C</div>
-            <div class="weather__condition">${weatherIcon} ${description}</div>
-            <div class="weather__details">
-                <span><i class="fas fa-temperature-low"></i> Ощущается: ${feelsLike}°C</span>
-                <span><i class="fas fa-tint"></i> Влажность: ${humidity}%</span>
-                <span><i class="fas fa-wind"></i> Ветер: ${windSpeed} м/с</span>
+            <div style="text-align: center;">
+                <div style="font-size: 1.1rem; font-weight: 600;"><i class="fas fa-location-dot"></i> ${this.weatherData.name}</div>
+                <div style="font-size: 2.5rem; font-weight: 700; margin: 10px 0;">${temp}°C</div>
+                <div>${weatherIcon} ${description}</div>
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px; font-size: 0.75rem;">
+                    <span>🌡️ Ощущается: ${feelsLike}°C</span>
+                    <span>💧 Влажность: ${humidity}%</span>
+                    <span>💨 Ветер: ${windSpeed} м/с</span>
+                </div>
             </div>
         `;
     }

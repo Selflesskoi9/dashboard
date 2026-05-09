@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Analytics Dashboard | Управление виджетами</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app__header">
+            <div class="container">
+                <div class="header__content">
+                    <div class="logo">
+                        <i class="fas fa-chart-line"></i>
+                        <h1>Analytics<span>Dashboard</span></h1>
+                    </div>
+                    <div class="header__actions">
+                        <button id="addTodoBtn" class="btn btn--primary">
+                            <i class="fas fa-tasks"></i> ToDo виджет
+                        </button>
+                        <button id="addQuoteBtn" class="btn btn--primary">
+                            <i class="fas fa-quote-right"></i> Цитата виджет
+                        </button>
+                        <button id="addWeatherBtn" class="btn btn--primary">
+                            <i class="fas fa-cloud-sun"></i> Погода виджет
+                        </button>
+                        <button id="clearAllBtn" class="btn btn--danger">
+                            <i class="fas fa-trash-alt"></i> Очистить всё
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="app__main">
+            <div class="container">
+                <div id="dashboardGrid" class="dashboard__grid">
+                    <div class="empty-state" id="emptyState">
+                        <i class="fas fa-plus-circle"></i>
+                        <h3>Нет активных виджетов</h3>
+                        <p>Нажмите на кнопки выше, чтобы добавить виджеты на панель</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app__footer">
+            <div class="container">
+                <div class="footer__content">
+                    <p>© 2026 Analytics Dashboard | Разработано с использованием ООП и модулей ES6</p>
+                    <div class="footer__info">
+                        <p>🤖 Создано с помощью: <strong>DeepSeek</strong> | Время выполнения: <strong>45 минут</strong></p>
+                        <p>⚡ JavaScript функционал: <strong>Динамическое добавление/удаление виджетов, работа с API (погода, цитаты), локальное хранилище задач, анимации</strong></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

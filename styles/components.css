@@ -1,0 +1,270 @@
+/* ========== WIDGET COMMON ========== */
+.widget {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.widget:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.widget__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.widget__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.widget__title i {
+    color: var(--accent);
+}
+
+.widget__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.widget__btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.widget__btn:hover {
+    color: var(--text-primary);
+    background: var(--border);
+}
+
+.widget__content {
+    padding: 1.25rem;
+}
+
+/* ========== TODO WIDGET ========== */
+.todo__input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.todo__input {
+    flex: 1;
+    padding: 0.625rem 0.875rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.875rem;
+}
+
+.todo__input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.todo__add {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.todo__add:hover {
+    background: var(--accent-hover);
+}
+
+.todo__list {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.todo__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.todo__item:hover {
+    background: var(--bg-secondary);
+}
+
+.todo__checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.todo__text {
+    flex: 1;
+    font-size: 0.875rem;
+}
+
+.todo__text.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.todo__delete {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.todo__delete:hover {
+    background: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+}
+
+/* ========== QUOTE WIDGET ========== */
+.quote__text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.quote__author {
+    text-align: right;
+    font-size: 0.875rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.quote__refresh {
+    width: 100%;
+    padding: 0.625rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.quote__refresh:hover {
+    background: var(--border);
+}
+
+/* ========== WEATHER WIDGET ========== */
+.weather__city {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.weather__city-input {
+    flex: 1;
+    padding: 0.625rem 0.875rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.weather__city-btn {
+    padding: 0.625rem 1rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.weather__city-btn:hover {
+    background: var(--accent-hover);
+}
+
+.weather__info {
+    text-align: center;
+    padding: 1rem;
+}
+
+.weather__temp {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.weather__condition {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.weather__details {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.weather__error {
+    color: var(--danger);
+    text-align: center;
+    padding: 1rem;
+}
+
+/* ========== LOADING STATE ========== */
+.widget__loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.widget__loading i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+}
